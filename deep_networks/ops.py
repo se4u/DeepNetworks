@@ -40,9 +40,9 @@ def std_eps(inputs, axis=0, epsilon=1e-8, name=None):
         return tf.sqrt(
             tf.reduce_mean(
                 tf.square(inputs - tf.reduce_mean(
-                    inputs, axis=axis, keep_dims=True)),
+                    inputs, axis=axis, keepdims=True)),
                 axis=axis,
-                keep_dims=True) + epsilon)
+                keepdims=True) + epsilon)
 
 
 def conv2d_subpixel(inputs, scale=2, data_format='NHWC', name=None):
