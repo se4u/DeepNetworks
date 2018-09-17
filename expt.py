@@ -2,8 +2,9 @@
 import os, sys, argparse, random
 import numpy as np
 sys.path.append('.')
-import seaborn as sns
 import matplotlib as mpl
+mpl.use('Agg')
+import seaborn as sns
 import matplotlib.pyplot as plt
 sns.set_style('white')
 sns.set(color_codes=True)
@@ -82,19 +83,19 @@ def wgan_mog_conv():
   arg_parser.add_argument('--dis_dim', default=300, type=int)
   arg_parser.add_argument('--num_epochs', default=3000, type=int)
   arg_parser.add_argument('--sample_interval', default=250, type=int)
-  arg_parser.add_argument('--plot_pfx', default=os.environ["HOME"]+'/wganexpt/fig/wgan.dim300.epoch{epoch}.png')
+  arg_parser.add_argument('--plot_pfx', default='./wganexpt/fig/wgan.dim300.epoch{epoch}.png')
   args=arg_parser.parse_args()
   plot_dirname = os.path.dirname(args.plot_pfx)
   print('Creating', plot_dirname)
-  os.makedirs(plot_dirname)
+  os.makedirs(plot_dirname, exist_ok=True)
   args.seed = 1234
   args.gm_num_examples = 5000
   args.gm_num_classes = 7
   args.gm_batch_size = 64
   args.gm_num_batches = args.gm_num_examples // args.gm_batch_size
   args.gm_output_shape = (2, )
-  args.gm_log_dir = os.environ["HOME"]+'/wganexpt/logs/gm'
-  args.gm_checkpoint_dir = os.environ["HOME"]+'/wganexpt/checkpoints/GM'
+  args.gm_log_dir = './wganexpt/logs/gm'
+  args.gm_checkpoint_dir = './wganexpt/checkpoints/GM'
   args.sample_epochs = tuple(range(0, args.num_epochs, args.sample_interval))
   args.num_samples = 700
   args.gen_layers = 3
