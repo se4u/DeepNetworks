@@ -30,7 +30,7 @@ class BasicGenerator(BaseGenerator):
                  c=None,
                  initializer=tf.contrib.layers.xavier_initializer(
                      uniform=False),
-                 dim=300,
+                 dim=None,
                  num_layers=3,
                  activation_fn=None,
                  name='generator',
@@ -84,7 +84,7 @@ class BasicDiscriminator(BaseDiscriminator):
                  initializer=tf.contrib.layers.xavier_initializer(
                      uniform=False),
                  regularizer=None,
-                 dim=300,
+                 dim=None,
                  num_layers=3,
                  disc_activation_fn=tf.nn.sigmoid,
                  cls_activation_fn=tf.nn.softmax,
