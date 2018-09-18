@@ -14,4 +14,9 @@ wganqsub () {
   done
 }
 
+gif () {
+    scp clsp:'/export/b20/prastog3/DeepNetworks/wganexpt/fig/wgan.dim300.epoch*.png' ~/Downloads/wganexpt/
+    convert $(for e in {1..39}; do printf "~/Downloads/wganexpt/wgan.dim300.epoch$(( 250 * e )).png " ; done) ~/Downloads/wganexpt/tmp.gif
+}
+
 $FNC
