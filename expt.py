@@ -83,7 +83,8 @@ def wgan_mog_conv():
   arg_parser.add_argument('--dis_dim', default=300, type=int)
   arg_parser.add_argument('--num_epochs', default=3000, type=int)
   arg_parser.add_argument('--sample_interval', default=250, type=int)
-  arg_parser.add_argument('--plot_pfx', default='./wganexpt/fig/wgan.dim300.epoch{epoch}.png')
+  arg_parser.add_argument('--plot_pfx', default=None,
+                          help='./wganexpt/fig/wgan.dim{dim}.epoch{epoch}.png')
   args=arg_parser.parse_args()
   plot_dirname = os.path.dirname(args.plot_pfx)
   print('Creating', plot_dirname)
